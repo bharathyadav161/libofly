@@ -26,7 +26,7 @@ app.use(function(req, res, next) {
 app.use(bodyParser.json());
 
 // DB config 
-const mongoURI = "mongodb+srv://Bharath:Bharath@cluster0.ldfmktg.mongodb.net/test?retryWrites=true&w=majority";
+const mongoURI = "mongodb+srv://Bharath:Bharath@cluster0.ldfmktg.mongodb.net/test";
 
 // Connect to mongo
 mongoose.connect(mongoURI)
@@ -35,8 +35,9 @@ mongoose.connect(mongoURI)
 
 app.use(passport.initialize());
 
-// Use routes
+// Use routesax
 app.use('/api/books',bookRouter);
+
 app.use('/api/users',userRouter);
 app.use('/api/issues',issueRouter);
 
@@ -50,6 +51,6 @@ if (process.env.NODE_ENV === 'production') {
     });
   }
 
-const port = process.env.PORT || 3000;
+const port =3001;
 
 app.listen(port, ()=> console.log(`Server started running on port ${port}`));
